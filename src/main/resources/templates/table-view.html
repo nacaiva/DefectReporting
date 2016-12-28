@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/table-view.js"></script>
+<style>
+body{
+  background-color: black;
+  margin-top: 30px;
+}
+h1{
+  color: Red ;
+  text-align: center;
+  font-size: 70px;
+  font-family: ArialBlack;
+  padding-bottom: 50px;
+}
+table, th, td, tr, template{
+  color: white;
+  border: 2px solid white;
+  border-collapse: collapse;
+}
+th, td{
+  font-size: 25px;
+}
+</style>
+</head>
+<body>
+  <h1>Defects</h1>
+  <table id="defects" style="width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Severity</th>
+        <th>Description</th>
+        <th>Creation date</th>
+        <th>Affected versions</th>
+      </tr>
+    </thead>
+    <template id="valuesTemplate">
+      <tr>
+        <td>{{names}}</td>
+        <td>{{severities}}</td>
+        <td>{{descriptions}}</td>
+        <td>{{dates}}</td>
+        <td>{{versions}}</td>
+      </tr>
+    </template>
+  </table>
+</body>
+</html>
