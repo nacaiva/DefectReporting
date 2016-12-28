@@ -1,11 +1,16 @@
 package sx.internship.defectreporting.model;
 
-import java.util.Date;
+
+
+
+
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -26,13 +31,18 @@ public class Defect {
 
 	private String name;
 
-	private Date creationDate;
+	private String creationDate;
 
 	private String desription;
 
 	@ManyToMany
+	@JoinTable(
+			name= "defect_version",
+			joinColumns=@JoinColumn(name= "defect_id", referencedColumnName="id"),
+			inverseJoinColumns= @JoinColumn(name="version_id", referencedColumnName="id"))
 	private List<Version> affectedVersions;
 
 	@ManyToOne
+	@JoinColumn(name="severity_id")
 	private Severity severity;
 }
